@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: fieldcheck-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    
+databases:
+  - name: fieldcheck-db
+    databaseName: fieldcheck
+    user: fieldcheck_user
+    plan: free
